@@ -4,6 +4,11 @@
   OctoAlert supercharges your Github email notifiations. Create an account to get a unique email.
 </p>
 
-<h3>
-  <%= link_to 'Create an account', signup_path %>
-</h3>
+<% unless current_user %>
+  <h3>
+    <%= link_to 'Create an account', signup_path %>
+  </h3>
+  <p>
+    <%= link_to 'Log in', login_path %>
+  </p>
+<% end %>

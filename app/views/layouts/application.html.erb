@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <% if current_user %>
+        <%= link_to "Account", current_user %>&nbsp;|&nbsp;
+        <%= link_to "Log out", logout_path, method: :delete %>
+      <% end %>
+    </header>
+
+    <section>
+      <% flash.each do |message_type, message| %>
+        <div><%= message %></div>
+      <% end %>
+
+      <%= yield %>
+    </section>
+
+    <footer>
+    </footer>
   </body>
 </html>
